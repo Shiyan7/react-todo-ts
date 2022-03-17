@@ -1,6 +1,5 @@
 .item {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     padding: 10px 15px;
     border: 1px solid var(--chakra-colors-gray-200);
@@ -34,7 +33,7 @@
 
 .bottom {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .date {
@@ -42,7 +41,7 @@
     font-size: 14px;
     line-height: 16px;
     color: var(--chakra-colors-gray-600);
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 
 .menuItem {
@@ -53,6 +52,7 @@
 }
 
 .menuBtn {
+    margin-top: 4px;
     border: none;
     background-color: var(--chakra-colors-whiteAlpha-300);
 }
@@ -62,5 +62,14 @@
 }
 
 .checkbox {
-    margin-right: 5px;
+    padding-top: 7px;
+}
+
+.textarea {
+    margin-top: 5px;
+}
+
+.btn {
+
+    color: #fff;
 }

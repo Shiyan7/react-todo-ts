@@ -90,6 +90,15 @@ export const App: FC = () => {
     setTodosFilter(filterName);
   }
 
+  const changeTitle = (id: number, newTitle: string) => {
+    setTodos(todos.map(todo => {
+      if(todo.id === id) {
+          todo.title = newTitle
+      }
+      return todo
+    }));
+  }
+
   return (
     <>
       <Header
@@ -100,6 +109,7 @@ export const App: FC = () => {
       <div className="content">
         <CreateTodoItem addedTodo={addedTodo} />
         <TodoList
+          changeTitle={changeTitle}
           importantTodo={importantTodo}
           searchQuery={searchQuery}
           completeTodo={completeTodo}

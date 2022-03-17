@@ -1,8 +1,7 @@
 import { FC, ChangeEvent } from 'react'
 import { HiFilter } from 'react-icons/hi'
-import { GrSearch } from 'react-icons/gr'
 import styles from './Header.module.scss'
-import { IconButton, MenuButton, Input, Menu, MenuList, MenuOptionGroup, MenuItemOption, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { IconButton, MenuButton, Input, Menu, MenuList, MenuOptionGroup, MenuItemOption } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../ColorModeSwitcher/ColorModeSwitcher';
 
 
@@ -19,7 +18,7 @@ export const Header: FC<IHeader> = ({onClick, onChange, value}) => {
           <span className={styles.logo}>Todo</span>
           <Input className={styles.input} variant='filled' onChange={onChange} value={value} placeholder='Search...' />
           <div className={styles.toolbar}>
-            <Menu placement='auto-start'>
+            <Menu placement='bottom-end'>
               <MenuButton className={styles.filter}>
                 <IconButton
                   display='flex'

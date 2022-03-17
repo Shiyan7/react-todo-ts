@@ -2,7 +2,7 @@
   "name": "react-todo-ts",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shiyan7.github.io/typescript-react/",
+  "homepage": "https://shiyan7.github.io/react-todo-ts/",
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@chakra-ui/react": "^1.8.6",

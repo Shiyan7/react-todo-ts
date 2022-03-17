@@ -9,9 +9,10 @@ interface ITodoList {
   removeTodo: (id: number) => void;
   completeTodo: (id: number) => void;
   importantTodo: (id: number) => void;
+  changeTitle: (id: number, newTitle: string) => void
 }
 
-export const TodoList: FC<ITodoList> = ({searchQuery, items, removeTodo, completeTodo, importantTodo}) => {
+export const TodoList: FC<ITodoList> = ({changeTitle, searchQuery, items, removeTodo, completeTodo, importantTodo}) => {
 
   const filtredTodos = items.filter((todo) =>
     todo.title.toLowerCase().includes(searchQuery.toLowerCase()),
@@ -22,7 +23,7 @@ export const TodoList: FC<ITodoList> = ({searchQuery, items, removeTodo, complet
   return (
     <ul>
       {filtredTodos.map((todo: ITodo) => (
-        <TodoItem importantTodo={importantTodo} completeTodo={completeTodo} removeTodo={removeTodo} key={todo.id} todo={todo} />
+        <TodoItem changeTitle={changeTitle} importantTodo={importantTodo} completeTodo={completeTodo} removeTodo={removeTodo} key={todo.id} todo={todo} />
       ))}
     </ul>
   )
