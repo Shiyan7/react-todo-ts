@@ -13,13 +13,13 @@ export const App: FC = () => {
   const [todosFilter, setTodosFilter] = useState('all')
   const toast = useToast()
 
-  useEffect(() => {
-		setTodos(JSON.parse(localStorage.getItem('todos') || ""))
-	}, [])
-
 	useEffect(() => {
 		localStorage.setItem('todos', JSON.stringify(todos))
 	}, [todos])
+  
+  useEffect(() => {
+		setTodos(JSON.parse(localStorage.getItem('todos') || ""))
+	}, [])
 
   const removeTodo = (id: number) => {
     setTodos(todos.filter(todo => todo.id !== id))
