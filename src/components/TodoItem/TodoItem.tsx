@@ -8,11 +8,11 @@ import styles from './TodoItem.module.scss'
 import classNames from 'classnames';
 
 interface ITodoItem {
-    todo: ITodo;
-    removeTodo: (id: number) => void;
-    completeTodo: (id: number) => void;
-    importantTodo: (id: number) => void;
-    changeTitle: (id: number, newTitle: string) => void;
+    todo: ITodo
+    removeTodo: (id: number) => void
+    completeTodo: (id: number) => void
+    importantTodo: (id: number) => void
+    changeTitle: (id: number, newTitle: string) => void
 }
 
 export const TodoItem: FC<ITodoItem> = ({changeTitle, todo, removeTodo, completeTodo, importantTodo}) => {
@@ -44,7 +44,7 @@ export const TodoItem: FC<ITodoItem> = ({changeTitle, todo, removeTodo, complete
     }
 
     return (
-        <li className={classNames(styles.item, todo.important ? styles.itemImportant : null, todo.completed ? styles.itemActive : '' )} >
+        <li className={classNames(styles.item, todo.completed ? styles.itemActive : '' )} >
             <span className={styles.left}>
                 <span className={styles.date}>{todo.date}</span>
                 <div className={styles.bottom}>
@@ -59,7 +59,7 @@ export const TodoItem: FC<ITodoItem> = ({changeTitle, todo, removeTodo, complete
                             </Box>
                         </form>
                     ) : (
-                        <span className={classNames(styles.title)}>{todo.title}</span>
+                        <h3 className={classNames(styles.title, todo.important ? styles.titleImportant : null,)}>{todo.title}</h3>
                     )}
                 </div>
             </span>

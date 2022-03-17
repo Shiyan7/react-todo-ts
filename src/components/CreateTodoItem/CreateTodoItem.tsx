@@ -10,7 +10,6 @@ interface ICreate {
 export const CreateTodoItem: FC<ICreate> = ({addedTodo}) => {
 
   const [todoTitle, setTodoTitle] = useState<string>('')
-  const [error, setError] = useState(false)
   
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
@@ -21,10 +20,7 @@ export const CreateTodoItem: FC<ICreate> = ({addedTodo}) => {
     e.preventDefault()
     if(todoTitle.trim()) {
       addedTodo(todoTitle)
-      setError(false)
       setTodoTitle('')
-    } else {
-      setError(true)
     }
   }
 
@@ -32,10 +28,9 @@ export const CreateTodoItem: FC<ICreate> = ({addedTodo}) => {
     <form onSubmit={submitForm} className={styles.container}>
       <InputGroup size='lg'>
         <Input
-          isInvalid={error}
           pr='4.5rem'
           type='text'
-          placeholder={error ? 'Type something...' : 'Add todo'}
+          placeholder='Add todo'
           className={styles.input}
           onChange={onChange}
           value={todoTitle}
