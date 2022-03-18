@@ -31,15 +31,15 @@ export const TodoItem: FC<ITodoItem> = ({changeTitle, todo, removeTodo, complete
     
     const submitForm = (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
         e.preventDefault()
-        if(newTitle.trim()) {
+        handleTitleEdit()
+        if(todo.title !== newTitle && newTitle.trim()) {
             changeTitle(todo.id, newTitle)
             setNewTitle(todo.title)
-            setEditTitle(false)
         }
     }
 
     const cancelEdit = () => {
-        setEditTitle(false)
+        handleTitleEdit()
         setNewTitle(todo.title)
     }
 

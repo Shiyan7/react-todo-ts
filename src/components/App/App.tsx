@@ -97,6 +97,13 @@ export const App: FC = () => {
       }
       return todo
     }));
+
+    toast({
+      title: 'Title changed',
+      status: 'info',
+      duration: 2000,
+      isClosable: true,
+    })
   }
 
   return (
