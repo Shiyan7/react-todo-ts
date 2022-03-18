@@ -9,17 +9,17 @@ import './App.scss'
 export const App: FC = () => {
 
   const [todos, setTodos] = useState<ITodo[]>([])
-  const [searchQuery, setSearchQuery] = useState('')
-  const [todosFilter, setTodosFilter] = useState('all')
+  const [searchQuery, setSearchQuery] = useState<string>('')
+  const [todosFilter, setTodosFilter] = useState<string>('all')
   const toast = useToast()
 
-	useEffect(() => {
-		localStorage.setItem('todos', JSON.stringify(todos))
-	}, [todos])
-  
   useEffect(() => {
-		setTodos(JSON.parse(localStorage.getItem('todos') || ""))
-	}, [])
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
+
+  useEffect(() => {
+    setTodos(JSON.parse(localStorage.getItem('todos') || ""))
+  }, [])
 
   const removeTodo = (id: number) => {
     setTodos(todos.filter(todo => todo.id !== id))
@@ -51,6 +51,9 @@ export const App: FC = () => {
   }
 
   const addedTodo = async (title: string) => {
+
+    setSearchQuery('')
+
     const newTodo: ITodo = {
       id: Math.random(),
       title: title,
