@@ -38,6 +38,10 @@
 
 [data-theme="light"] .input {
     background-color: var(--chakra-colors-gray-100);
+
+    &:focus {
+        background-color: var(--chakra-colors-gray-100);
+    }
 }
 
 .input {

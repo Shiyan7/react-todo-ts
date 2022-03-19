@@ -12,14 +12,14 @@ export const App: FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [todosFilter, setTodosFilter] = useState<string>('all')
   const toast = useToast()
+  
+  useEffect(() => {
+    setTodos(JSON.parse(localStorage.getItem('todos') || ""))
+  }, [])
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
-
-  useEffect(() => {
-    setTodos(JSON.parse(localStorage.getItem('todos') || ""))
-  }, [])
 
   const removeTodo = (id: number) => {
     setTodos(todos.filter(todo => todo.id !== id))
